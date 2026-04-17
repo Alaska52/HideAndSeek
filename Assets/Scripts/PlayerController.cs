@@ -1,20 +1,23 @@
 using UnityEngine;
 
+// reads input value to determine what to do with the values
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float _moveSpeed = 5f;
-
-    private Vector2 _movement;
-    private Rigidbody2D _rb;
-
+    private PlayerMovement controls;
     private void Awake()
     {
-        _rb = GetComponent<Rigidbody2D>();
+        // initialise our controls
+        controls = new PlayerMovement();
+    }
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+
     }
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
-        _movement.Set(InputManager.Movement.x, InputManager.Movement.y);
-        _rb.linearVelocity = _movement * _moveSpeed; 
+
     }
 }
